@@ -1,4 +1,5 @@
 #include "utasitas.h"
+#include "iostream"
 using namespace std;
 
 Utasitas::Utasitas(){

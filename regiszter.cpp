@@ -5,12 +5,9 @@ Regiszter::Regiszter(){
     ertek = 0;
 }
 
-void Regiszter::set_nev(string NEV){
+void Regiszter::set(string NEV, double ERTEK){
     nev = NEV;
-}
-
-void Regiszter::set_ertek(double ERTEK){
-    ertek = ERTEK;
+	ertek = ERTEK;
 }
 
 string Regiszter::tell_nev(){
@@ -20,3 +17,4 @@ string Regiszter::tell_nev(){
 double Regiszter::tell_ertek(){
     return ertek;
 }
+

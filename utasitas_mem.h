@@ -4,10 +4,11 @@
 #include "utasitas.h"
 
 class Utasitas_mem{
-    Utasitas* utasitasok[1024];
+    Utasitas** utasitasok;
     unsigned int utasitasok_szama;
 public:
     Utasitas_mem();
+    void utasitas_mem_inc();
     void add_utasitas(string utasitas);
     void print_utasitasok();
     void execute(unsigned int PC);

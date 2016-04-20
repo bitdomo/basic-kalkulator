@@ -9,8 +9,7 @@ class Regiszter{
     double ertek;
 public:
     Regiszter();
-    void set_nev(string NEV);
-    void set_ertek(double ERTEK);
+    void set(string NEV, double ERTEK);
     string tell_nev();
     double tell_ertek();
 };

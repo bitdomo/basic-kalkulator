@@ -12,20 +12,16 @@ unsigned int Kalkulator::tell_pc(){
     return PC.tell_pc();
 }
 
-void Kalkulator::set_reg_nev(unsigned int regiszter_szama, string NEV){
-    regiszter[regiszter_szama].set_nev(NEV);
+void Kalkulator::set_reg(string NEV, double ERTEK){
+    regiszterek.set_reg(NEV, ERTEK);
 }
 
-void Kalkulator::set_reg_ertek(unsigned int regiszter_szama, double ERTEK){
-    regiszter[regiszter_szama].set_ertek(ERTEK);
+string Kalkulator::tell_reg_nev(int regiszter_szama){
+    return regiszterek.tell_nev(regiszter_szama);
 }
 
-string Kalkulator::tell_reg_nev(unsigned int regiszter_szama){
-    return regiszter[regiszter_szama].tell_nev();
-}
-
-double Kalkulator::tell_reg_ertek(unsigned int regiszter_szama){
-    return regiszter[regiszter_szama].tell_ertek();
+double Kalkulator::tell_reg_ertek(int regiszter_szama){
+    return regiszterek.tell_ertek(regiszter_szama);
 }
 
 void Kalkulator::add_utasitas(string utasitas){

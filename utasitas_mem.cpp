@@ -13,7 +13,7 @@ string tipus_megmondo(string utasitas){
     }
     i++;
     while(utasitas[i] != ' '){
-        temp += utasitas[i];
+        temp += toupper(utasitas[i]);
         i++;
     }
     return temp;
@@ -39,39 +39,44 @@ string parameter_megmondo(string utasitas){
 }
 
 Utasitas_mem::Utasitas_mem(){
+    utasitasok = new Utasitas*[0];
     utasitasok_szama = 0;
 }
-
+void Utasitas_mem::utasitas_mem_inc(){
+    Utasitas** temp = utasitasok;
+    utasitasok = new Utasitas*[utasitasok_szama + 1];
+    for(unsigned int i = 0; i < utasitasok_szama; i++){
+        utasitasok[i] = temp[i];
+    }
+    utasitasok_szama++;
+}
 void Utasitas_mem::add_utasitas(string utasitas){
-    string tipus;
-    string parameter;
-    tipus = tipus_megmondo(utasitas);
-    parameter = parameter_megmondo(utasitas);
-
-    if(tipus == "LET" || tipus == "let"){
-        utasitasok[utasitasok_szama] = new LET;
-        utasitasok[utasitasok_szama]->set_utasitas(tipus, parameter);
-        utasitasok_szama++;
+    string tipus = tipus_megmondo(utasitas);
+    string parameter = parameter_megmondo(utasitas);
+    if(tipus == "LET"){
+        utasitas_mem_inc();
+        utasitasok[utasitasok_szama - 1] = new LET;
+        utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
-    if(tipus == "PRINT" || tipus == "print"){
-        utasitasok[utasitasok_szama] = new PRINT;
-        utasitasok[utasitasok_szama]->set_utasitas(tipus, parameter);
-        utasitasok_szama++;
+    if(tipus == "PRINT"){
+        utasitas_mem_inc();
+        utasitasok[utasitasok_szama - 1] = new PRINT;
+        utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
-    if(tipus == "IF" || tipus == "if"){
-        utasitasok[utasitasok_szama] = new IF;
-        utasitasok[utasitasok_szama]->set_utasitas(tipus, parameter);
-        utasitasok_szama++;
+    if(tipus == "IF"){
+        utasitas_mem_inc();
+        utasitasok[utasitasok_szama - 1] = new IF;
+        utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
-    if(tipus == "INPUT" || tipus == "INPUT"){
-        utasitasok[utasitasok_szama] = new INPUT;
-        utasitasok[utasitasok_szama]->set_utasitas(tipus, parameter);
-        utasitasok_szama++;
+    if(tipus == "INPUT"){
+        utasitas_mem_inc();
+        utasitasok[utasitasok_szama - 1] = new INPUT;
+        utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
-    if(tipus == "GOTO" || tipus == "goto"){
-        utasitasok[utasitasok_szama] = new GOTO;
-        utasitasok[utasitasok_szama]->set_utasitas(tipus, parameter);
-        utasitasok_szama++;
+    if(tipus == "GOTO"){
+        utasitas_mem_inc();
+        utasitasok[utasitasok_szama - 1] = new GOTO;
+        utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
 }
 
