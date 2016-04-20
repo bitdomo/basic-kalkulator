@@ -1,8 +1,12 @@
 #ifndef UTASITAS_H_INCLUDED
 #define UTASITAS_H_INCLUDED
-#include <string>
+
 #include <iostream>
+#include <string>
+#include "regiszter_tomb.h"
+
 using namespace std;
+
 
 class Utasitas{
     string tipus;
@@ -11,33 +15,37 @@ public:
     Utasitas();
     void set_utasitas(string TIPUS, string ADAT);
     string tell_utasitas();
-    virtual void execute(){};
+	string tell_utasitas_parameter();
+	virtual int execute(Regiszter_tomb& regiszter_tomb) { return -1; };
 };
 
 class LET : public Utasitas{
-    void execute(){
-        cout << "LELELELET";
+    int execute(){
+        cout << "LET futtatas\n";
+		return -1;
     }
 };
 
 class PRINT : public Utasitas{
-    void execute(){
-        cout << "PRIIIIIINT";
-    }
+	int execute(Regiszter_tomb& regiszter_tomb);
 };
 
 class IF : public Utasitas{
-
+	int execute(Regiszter_tomb& regiszter_tomb) {
+		cout << "IF futtatas\n";
+		return -1;
+	}
 };
 
 class INPUT : public Utasitas{
-
+	int execute(Regiszter_tomb& regiszter_tomb) {
+		cout << "INPUT futtatas\n";
+		return -1;
+	}
 };
 
 class GOTO : public Utasitas{
-    void execute(){
-        cout << "GOGOGOOGOGO";
-    }
+	int execute(Regiszter_tomb& regiszter_tomb);
 };
 ostream& operator<<(ostream& os, Utasitas utasitas);
 #endif // UTASITAS_H_INCLUDED

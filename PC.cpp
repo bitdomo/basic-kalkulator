@@ -1,5 +1,4 @@
-#include "pc.h"
-
+#include "PC.h"
 pc::pc(){
     counter=0;
 }

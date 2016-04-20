@@ -1,3 +1,4 @@
+#include <string>
 #include "regiszter.h"
 
 Regiszter::Regiszter(){

@@ -11,9 +11,6 @@ public:
     void utasitas_mem_inc();
     void add_utasitas(string utasitas);
     void print_utasitasok();
-    void execute(unsigned int PC);
+    int execute(Regiszter_tomb& regiszterek, unsigned int PC);
 };
-
-Utasitas* operator+(Utasitas* utasitasok, string utasitas);
-
 #endif // UTASITAS_MEM_H_INCLUDED

@@ -31,7 +31,6 @@ void Kalkulator::add_utasitas(string utasitas){
 void Kalkulator::print_utasitasok(){
     utasitas_mem.print_utasitasok();
 }
-void Kalkulator::execute(unsigned int PC){
-    utasitas_mem.execute(PC);
-    inc_pc();
+int Kalkulator::execute(unsigned int PC){
+    return utasitas_mem.execute(regiszterek, PC);
 }

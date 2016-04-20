@@ -1,11 +1,14 @@
 #ifndef REGISZTER_TOMB_H_INCLUDED
 #define REGISZTER_TOMB_H_INCLUDED
+
+#include <string>
 #include "regiszter.h"
+
 class Regiszter_tomb {
 	Regiszter* regiszterek;
 	int meret;
 public:	
-	void Regiszter_tomb::inc_reg();
+	void inc_reg();
 	int is_elem(string NEV);
 	void set_reg(string NEV, double ERTEK);
 	string tell_nev(int regiszter_szama);

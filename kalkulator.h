@@ -1,10 +1,8 @@
 #ifndef KALKULATOR_H_INCLUDED
 #define KALKULATOR_H_INCLUDED
-
-#include "pc.h"
-#include "regiszter.h"
-#include "utasitas_mem.h"
+#include "PC.h"
 #include "regiszter_tomb.h"
+#include "utasitas_mem.h"
 
 class Kalkulator{
     pc PC;
@@ -19,7 +17,7 @@ public:
     double tell_reg_ertek(int regiszter_szama);
     void add_utasitas(string utasitas);
     void print_utasitasok();
-    void execute(unsigned int PC);
+    int execute(unsigned int PC);
 };
 
 #endif // KALKULATOR_H_INCLUDED

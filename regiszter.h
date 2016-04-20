@@ -1,6 +1,5 @@
 #ifndef REGISZTER_H_INCLUDED
 #define REGISZTER_H_INCLUDED
-#include <string>
 
 using namespace std;
 

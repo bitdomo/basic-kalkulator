@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "utasitas_mem.h"
 
 using namespace std;
@@ -85,6 +83,9 @@ void Utasitas_mem::print_utasitasok(){
         cout << (i+1) * 10 << " " << utasitasok[i]->tell_utasitas() << endl;
     }
 }
-void Utasitas_mem::execute(unsigned int PC){
-    utasitasok[PC]->execute();
+int Utasitas_mem::execute(Regiszter_tomb& regiszterek, unsigned int PC){
+	if (utasitasok_szama == PC) {
+		return -2;
+	}
+    return utasitasok[PC]->execute(regiszterek);
 }
