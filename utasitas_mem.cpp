@@ -61,6 +61,11 @@ void Utasitas_mem::add_utasitas(string utasitas){
         utasitasok[utasitasok_szama - 1] = new PRINT;
         utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
     }
+	if (tipus == "PRINTNL") {
+		utasitas_mem_inc();
+		utasitasok[utasitasok_szama - 1] = new PRINTNL;
+		utasitasok[utasitasok_szama - 1]->set_utasitas(tipus, parameter);
+	}
     if(tipus == "IF"){
         utasitas_mem_inc();
         utasitasok[utasitasok_szama - 1] = new IF;

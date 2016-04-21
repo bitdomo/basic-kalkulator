@@ -20,17 +20,17 @@ public:
 };
 
 class LET : public Utasitas{
-    int execute(){
-        cout << "LET futtatas\n";
-		return -1;
-    }
-};
-
-class PRINT : public Utasitas{
+public:
 	int execute(Regiszter_tomb& regiszter_tomb);
 };
 
+class PRINT : public Utasitas{
+public:
+	virtual int execute(Regiszter_tomb& regiszter_tomb);
+};
+
 class IF : public Utasitas{
+public:
 	int execute(Regiszter_tomb& regiszter_tomb) {
 		cout << "IF futtatas\n";
 		return -1;
@@ -38,14 +38,19 @@ class IF : public Utasitas{
 };
 
 class INPUT : public Utasitas{
-	int execute(Regiszter_tomb& regiszter_tomb) {
-		cout << "INPUT futtatas\n";
-		return -1;
-	}
+public:
+	virtual int execute(Regiszter_tomb& regiszter_tomb);
 };
 
 class GOTO : public Utasitas{
+public:
 	int execute(Regiszter_tomb& regiszter_tomb);
 };
+
+class PRINTNL : public PRINT{
+public:
+	int execute(Regiszter_tomb& regiszter_tomb);
+};
+
 ostream& operator<<(ostream& os, Utasitas utasitas);
 #endif // UTASITAS_H_INCLUDED

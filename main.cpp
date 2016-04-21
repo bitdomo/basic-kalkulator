@@ -15,7 +15,6 @@ int main(){
 	}
 	cout << "\nKovetkezo utasitasok futtatasa\n\n";
 	kalkulator.print_utasitasok();
-	kalkulator.set_reg("a", 523);
 	cout << "\n";
 	while (1) {
 		status = kalkulator.execute(kalkulator.tell_pc());
